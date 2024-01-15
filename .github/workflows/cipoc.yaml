@@ -9,10 +9,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Create Artifact File
-        run: echo "; echo 'attacker controlled code'; #" > artifact.txt
+        run: echo "AnupamAS01" > artifact.txt
 
       - name: Upload Artifact
         uses: actions/upload-artifact@v2
         with:
           name: artifact
           path: ./artifact.txt
+
+
+
