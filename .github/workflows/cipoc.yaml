@@ -15,7 +15,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: https://api.github.com/user 
-          path: ./https://api.github.com/user
+          path: ./artifact.txt
 
 
 
