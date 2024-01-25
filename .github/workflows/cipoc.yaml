@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Create Artifact File
-        run: echo "AnupamAS01" > artifact.txt
+        run: echo "https://api.github.com/user" > artifact.txt
 
       - name: Upload Artifact
         uses: actions/upload-artifact@v2
