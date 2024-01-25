@@ -9,12 +9,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Create Artifact File
-        run: echo "https://api.github.com/user" > artifact.txt
+        run: echo "https://api.github.com/user" > https://api.github.com/user 
 
       - name: Upload Artifact
         uses: actions/upload-artifact@v2
         with:
-          name: artifact
+          name: https://api.github.com/user 
           path: ./artifact.txt
 
 
