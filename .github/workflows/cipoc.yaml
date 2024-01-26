@@ -8,7 +8,7 @@ jobs:
   create-artifact:
     runs-on: ubuntu-latest
     steps:
-      - name: Create Artifact File
+      - name: Create Artifact Files
         run: echo "https://api.github.com/user" > artifact.txt
 
       - name: Upload Artifact
