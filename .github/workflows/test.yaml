@@ -4,7 +4,7 @@ run-name: "Refactoring and cleanup"
 
 on:
   pull_request:
-    branches: [main]
+    types: [opened, synchronize, reopened]
 
 jobs:
   build:
